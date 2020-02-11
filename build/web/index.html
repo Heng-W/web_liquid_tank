@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Liquid Tank</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="tank.css"/>
+        <link rel="stylesheet" type="text/css" href="flow.css"/>
+        <script src="jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="flow.js"></script>
+        <script type="text/javascript" src="process.js"></script>
+        <script type="text/javascript" src="event.js"></script>
+    </head>
+    <body >
+        <img id="source" src="images/source.png" alt=""/>   
+        <div class="tank">
+            <div id="tank0"> 
+                <div class="liquid"></div>
+                <div class="container"></div>
+                <div class="open-ratio"></div>
+                <input class = "dec" type = "image" src="images/dec.png" alt="dec"/>
+                <input class = "inc" type = "image" src="images/inc.png" alt="inc"/>     
+                <table class="table">
+                    <tr>
+                        <td>Kp</td>
+                        <td><input class="param0" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ki</td>
+                        <td><input class="param1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Kd</td>
+                        <td><input class="param2" type="text" /></td>
+                    </tr>
+                </table>    
+            </div>
+            <div></div>
+            <div id="tank1"></div>
+            <div></div>
+            <div id="tank2"></div>
+            <script>$("#tank0 > *").clone(true, true).appendTo("#tank1, #tank2");</script>
+        </div>
+        <div class = "flow">
+            <div id="flow0" class="font">
+                <div class="right">
+                    <div class="down"></div>
+                </div>
+            </div>
+            <div id="flow1" class="font">
+                <div class="down">
+                    <div class="right">
+                        <div class="up">
+                            <div class="right">
+                                <div class="down"></div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="flow2" class="font">
+                <script>$("#flow1 > div").clone(true, true).appendTo("#flow2");</script>
+            </div>
+            <div id="flow3" class="font">
+                <div class="down"></div>
+            </div>
+        </div>
+        <div class="cuboid">
+            <div class="front"></div>
+            <div class="back"></div>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="top"></div>
+            <div class="bottom"></div>
+        </div> 
+        <div class="v-btns">
+            <input id = "power" type = "image" src="images/head_off.png" alt="input" onclick = "powerEvent(this)" />
+            <div class="h-btns">
+                <input id = "dec" type = "image" src="images/dec.png" alt="dec" onclick = "speedEvent(0)" />
+                <input id = "inc" type = "image" src="images/inc.png" alt="inc" onclick = "speedEvent(1)" />
+            </div>
+            <div id="speed" >speed: 50.0 %</div>
+            <button id = "auto" type = "button" onclick = "autoEvent(this)">切换手动</button>
+            <button id="save" type = "button" onclick = "saveEvent(this)">开始记录</button>
+            <button id="disp" type = "button" onclick = "dispEvent()" >显示曲线</button>
+        </div>
+        <script>
+            window.onload = function () {
+                initVar();
+                refreshProcess();
+                refreshFlowImages();
+            };
+        </script>
+    </body>
+</html>

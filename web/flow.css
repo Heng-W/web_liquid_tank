@@ -1,0 +1,162 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+.flow {
+    position: absolute;
+    left:0;
+    top:0;
+    visibility:hidden;
+}
+
+.flow > div{
+    position: absolute;
+}
+
+.flow > div div{
+    position: absolute;
+    width: 10px;
+    height:10px;
+    background-color: #96B4F0;
+    background-image: repeating-linear-gradient(45deg,hsla(0,0%,100%,0.75) 0,hsla(0,0%,100%,0.75) 10px,transparent 0,transparent 20px);
+}
+
+.flow .font{
+    width:200px;
+    color:#96B4F0;
+    font-size:16px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#flow0{
+    left:75px;
+    top:60px;
+}
+
+#flow1{
+    left:145px;
+    top:340px;
+}
+
+#flow2{
+    left:345px;
+    top:340px;
+}
+
+#flow3{
+    left:545px;
+    top:340px;
+}
+
+#flow0:after{
+    content:attr(data-flow);
+    position:absolute;
+    left:20px;
+    top:-25px;
+}
+
+#flow1:after,
+#flow2:after{
+    content:attr(data-flow);
+    position:absolute;
+    left:-10px;
+    top:70px;
+}
+
+
+#flow3:after{
+    content:attr(data-flow);
+    position:absolute;
+    left:20px;
+    top:100px;
+}
+
+#flow0 > div{
+    width: 80px;
+}
+
+#flow1 > div, #flow2 > div{
+    height:60px;
+}
+
+#flow3 > div{
+    height: 140px;
+}
+
+
+.down > .right{
+    width: 110px;
+    left:0;
+    bottom:0;
+}
+
+.right >  .up{
+    height: 340px;
+    right:0;
+    bottom:0;
+}
+
+.up > .right{
+    width: 110px;
+    left:0;
+    top:0;
+}
+
+.right > .down{
+    height: 60px;
+    right:0;
+    top:0;
+}
+
+
+.cuboid {
+    position: absolute;
+    left:490px;
+    top:485px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(10deg);
+    z-index: -1;
+}
+
+.cuboid div {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    opacity: 0.8;
+    transition: .4s;
+}
+
+.cuboid .front {
+    transform: translateZ(30px);
+    background: #a3daff;
+}
+
+.cuboid .back {
+    transform: rotateY(180deg) translateZ(30px);
+    background: #a3daff;
+}
+
+.cuboid .left {
+    width:60px;
+    transform:translateX(30px) rotateY(-90deg) translateZ(60px);
+    background: #1ec0ff;
+}
+
+.cuboid .right {
+    width:60px;
+    transform:translateX(30px) rotateY(90deg) translateZ(60px);
+    background: #1ec0ff;
+}
+
+.cuboid .top {
+    transform: rotateX(90deg) translateZ(30px);
+    background: #0080ff;
+}
+
+.cuboid .bottom {
+    transform: rotateX(-90deg) translateZ(30px);
+    background: #0080ff;
+}
