@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="web_liquid_tank:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/web_liquid_tank_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="web_liquid_tank/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="web_liquid_tank" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jcommon-1.0.23" />
+          <element id="library" level="project" name="jfreechart-1.0.19" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -114,10 +114,13 @@ function saveEvent(element) {
         $.ajax({
             type: "post",
             dataType: "text",
-            url: "/WebLiquidTank/Process", //servlet地址      
-            data: jsonObj,    
-            success: function (msg) {   
+            url: "Process", //servlet地址     
+            data: jsonObj,
+            success: function (msg) {
                 alert(msg);
+            },
+            error: function (data) {
+                alert('异常');
             }
         });
         saveTask = setTimeout("saveMessage()", 5000);
@@ -142,9 +145,12 @@ function saveMessage() {
     $.ajax({
         type: "post",
         dataType: "text",
-        url: "/WebLiquidTank/Process", //servlet地址      
-        data: jsonObj,      
-        success: function (msg) {    
+        url: "Process", //servlet地址     
+        data: jsonObj,
+        success: function (msg) {
+        },
+        error: function (data) {
+            alert('异常');
         }
     });
     saveTask = setTimeout("saveMessage()", 5000);
@@ -157,9 +163,12 @@ function dispEvent() {
     $.ajax({
         type: "post",
         dataType: "text",
-        url: "/WebLiquidTank/Process", //servlet地址      
-        data: jsonObj,    
-        success: function (msg) {    
+        url: "Process", //servlet地址     
+        data: jsonObj,
+        success: function (msg) {
+        },
+        error: function (data) {
+            alert('异常');
         }
     });
 }
